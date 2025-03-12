@@ -13,18 +13,18 @@ async def on_ready():
     print(str(bot.user) + " is online!")
 
 
-async def logi(message):
+async def log_to_txt(message):
     with open("logi_bota_PL/logs.txt", 'a') as file:
         file.write(f'{message}\n')
     file.close()
 
 @bot.command(pass_context=True)
 async def send_message(ctx , mess):
-    await logi("[{}] [LOG_DISCORD_SEND] {}".format(datetime.datetime.now(), mess))
+    await log_to_txt("[{}] [LOG_DISCORD_SEND] {}".format(datetime.datetime.now(), mess))
     await ctx.send(mess)
 
 async def printing(text):
-    await logi("[{}] [LOG_IN_CMD] {}".format(datetime.datetime.now(), text))
+    await log_to_txt("[{}] [LOG_IN_CMD] {}".format(datetime.datetime.now(), text))
     print("[{}] [LOG_IN_CMD] {}".format(datetime.datetime.now(), text))
 
 
@@ -51,7 +51,7 @@ async def remove(amount, csv):
 @bot.command(pass_context=True)
 async def gen(ctx, amount, country):
         user = ctx.message.author
-        if discord.utils.get(ctx.guild.roles, name = "customer") not in user.roles:
+        if discord.utils.get(ctx.guild.roles, name = "your_role") not in user.roles:
             await send_message(ctx , "@{} You are not able to use this command!".format(user))
         else:
             try:
