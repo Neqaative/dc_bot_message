@@ -2,6 +2,8 @@
 
 ## 📌 About the Project
 
+## 🛑 Note: This code was written in 2022 and may be outdated. Some features might no longer work due to updates in Discord's API or discord.py.
+
 This is a Discord bot built using Python and the `discord.py` library. It provides logging, message sending, and account generation functionalities.
 
 ## ⚡ Features
